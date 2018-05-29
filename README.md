@@ -1,8 +1,8 @@
-# tools_appdev
-
-newcode: create a simple kivy app.
-TMP: mount/umount filesystem from phone.
-ug: copy app to Kivy Launcher.
-doug: upgrade app to Kivy Launcher.
-toPhone: upgrade packaged app to phone.
+# tools_appdev<br>
+<br>
+newcode: create a simple kivy app.<br>
+TMP: mount/umount filesystem from phone.<br>
+ug: copy app to Kivy Launcher.<br>
+doug: upgrade app to Kivy Launcher.<br>
+toPhone: upgrade packaged app to phone.<br>
 
