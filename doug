@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "mounting."
+simple-mtpfs /mnt/
+if [ $? -eq 0 ] ; then
+	echo "upgrading..."
+	ug
+	echo "umounting."
+	fusermount -u /mnt
+else
+	echo "what's going on?"
+fi

@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import sys
+import os
+
+if __name__ == '__main__':
+	if os.geteuid() != 0:
+		sys.exit("Have no root\'s permission, exit.")
+
+	if len(sys.argv) == 2:
+		app_file = sys.argv[1]
+		os.system('simple-mtpfs /mnt/')
+		os.system('cp '+app_file+' /mnt/Download')
+		os.system('fusermount -u /mnt')
+	else:
+		sys.exit("wrong arguments.")

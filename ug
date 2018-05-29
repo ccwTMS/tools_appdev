@@ -1,0 +1,40 @@
+#!/usr/bin/python
+
+# simple-mtpfs /mnt/
+# fusermount -u /mnt
+
+import os, sys
+from shutil import copytree, rmtree
+from shutil import Error as Shutil_Error
+import re
+
+def usage():
+	#print("Usage:\n ug [Program Name]\n")
+	print("Usage:\n ug \n")
+
+def android_modify(name):
+	f=open('android.txt', 'rw+')
+	d=f.read()
+	dm = re.sub("title\=.*\\n",'title='+name+'\n',d)
+	print dm
+	f.seek(0)
+	f.write(dm)
+	f.close()
+
+
+if __name__ == '__main__':
+	program_name = os.path.basename(os.environ['PWD'])
+	dist = '/mnt/kivy/' + program_name
+	if os.path.exists(dist):
+		rmtree(dist)
+
+	#os.mkdir(dist)
+
+	android_modify(program_name)
+	try:
+		copytree('../'+ program_name, dist)
+	except Shutil_Error:
+		pass
+	
+		
+	

@@ -1,0 +1,39 @@
+#!/usr/bin/python
+import os, sys
+simple_code = "\
+#!/usr/bin/python\n\
+from kivy.app import runTouchApp #App\n\
+from kivy.lang import Builder\n\
+#from kivy.uix.widget import Widget\n\
+\n\
+_kv_code = \"\"\"\n\
+Label:\n\
+	text: 'Hello, world.'\n\
+\"\"\"\n\
+\n\
+\"\"\"\n\
+#Builder.load_string(_kv_code)\n\
+\n\
+class RootWidget(Widget):\n\
+	pass\n\
+\n\
+class InitApp(App):\n\
+	def build(self):\n\
+		return RootWidget()\n\
+\n\
+\"\"\"\n\
+\n\
+if __name__ == '__main__':\n\
+	#InitApp().run()\n\
+	runTouchApp(Builder.load_string(_kv_code))\n\
+"
+
+if len(sys.argv) == 2:
+	f=open(sys.argv[1], 'w+')
+	f.write(simple_code)
+	f.close()
+else:
+	sys.exit("Usage: newcode [filename]")
+
+
+
