@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ $EUID -ne 0 ] ; then
+	echo "You should have root level permission."
+	exit
+fi
 echo "mounting."
 simple-mtpfs /mnt/
 if [ $? -eq 0 ] ; then
